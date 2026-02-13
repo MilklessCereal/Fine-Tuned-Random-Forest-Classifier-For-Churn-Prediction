@@ -17,7 +17,7 @@ Segment customers into High / Medium / Low churn risk
 
 This project demonstrates an end-to-end machine learning workflow including data preprocessing, exploratory data analysis (EDA), model training, evaluation, and interpretation.
 
-📂 Dataset
+## 📂 Dataset
 
 Source: Kaggle
 
@@ -29,7 +29,7 @@ The dataset contains customer demographic, account, and service usage informatio
 
 🛠️ Technologies Used
 
-Python 3.x
+Python 3
 
 Pandas
 
