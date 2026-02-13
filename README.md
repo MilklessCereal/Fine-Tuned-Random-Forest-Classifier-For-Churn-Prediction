@@ -41,7 +41,7 @@ Scikit-learn
 imbalanced-learn (SMOTE)
 
 ## 🔎 Project Workflow
-# 1️⃣ Exploratory Data Analysis (EDA)
+### 1️⃣ Exploratory Data Analysis (EDA)
 
 Basic EDA steps include:
 
