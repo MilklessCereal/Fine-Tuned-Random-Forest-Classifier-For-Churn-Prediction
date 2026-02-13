@@ -55,7 +55,7 @@ Correlation matrix visualization
 
 Target distribution analysis (churn imbalance)
 
-# 2️⃣ Data Preprocessing
+###  2️⃣ Data Preprocessing
 
 Handling missing values
 
@@ -65,7 +65,7 @@ Feature scaling
 
 Train-test split
 
-# 3️⃣ Handling Class Imbalance
+###  3️⃣ Handling Class Imbalance
 
 The dataset is imbalanced.
 
@@ -79,7 +79,7 @@ RFC without SMOTE
 
 RFC with SMOTE
 
-# 4️⃣ Model Optimization
+###  4️⃣ Model Optimization
 
 Hyperparameter tuning performed using:
 
@@ -99,7 +99,7 @@ class_weight
 
 bootstrap
 
-# 5️⃣ Model Evaluation
+###  5️⃣ Model Evaluation
 
 Evaluation metrics include:
 
@@ -121,13 +121,13 @@ RFC + SMOTE
 
 Tuned RFC + SMOTE
 
-# 6️⃣ Feature Importance
+### 6️⃣ Feature Importance
 
 The final model produces a feature importance visualization, identifying key drivers of customer churn.
 
 This helps improve interpretability and supports business decision-making.
 
-# 7️⃣ Customer Risk Segmentation
+###  7️⃣ Customer Risk Segmentation
 
 Based on predicted churn probabilities, customers are categorized into:
 
