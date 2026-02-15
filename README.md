@@ -4,15 +4,15 @@ This project investigates customer churn prediction using a Random Forest Classi
 
 The primary objective is to:
 
-Compare Random Forest performance with and without SMOTE
+- Compare Random Forest performance with and without SMOTE
 
-Optimize hyperparameters using RandomizedSearchCV
+- Optimize hyperparameters using RandomizedSearchCV
 
-Evaluate model performance improvements
+- Evaluate model performance improvements
 
-Analyze feature importance
+- Analyze feature importance
 
-Segment customers into High / Medium / Low churn risk
+- Segment customers into High / Medium / Low churn risk
 
 This project demonstrates an end-to-end machine learning workflow including data preprocessing, exploratory data analysis (EDA), model training, evaluation, and interpretation.
 
