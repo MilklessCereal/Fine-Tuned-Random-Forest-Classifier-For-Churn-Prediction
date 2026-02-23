@@ -1,4 +1,4 @@
-## 📌 Telco Customer Churn Prediction – Random Forest with SMOTE & RandomizedSearchCV
+## Telco Customer Churn Prediction – Random Forest with SMOTE & RandomizedSearchCV
 
 This project investigates customer churn prediction using a Random Forest Classifier (RFC) on the Telco Customer Churn dataset from Kaggle.
 
@@ -16,7 +16,7 @@ The primary objective is to:
 
 This project demonstrates an end-to-end machine learning workflow including data preprocessing, exploratory data analysis (EDA), model training, evaluation, and interpretation.
 
-## 📂 Dataset
+## Dataset
 
 Source: Kaggle
 
@@ -40,8 +40,8 @@ Scikit-learn
 
 imbalanced-learn (SMOTE)
 
-## 🔎 Project Workflow
-### 1️⃣ Exploratory Data Analysis (EDA)
+## Project Workflow
+### Exploratory Data Analysis (EDA)
 
 Basic EDA steps include:
 
@@ -55,7 +55,7 @@ Correlation matrix visualization
 
 Target distribution analysis (churn imbalance)
 
-###  2️⃣ Data Preprocessing
+### Data Preprocessing
 
 Handling missing values
 
@@ -65,7 +65,7 @@ Feature scaling
 
 Train-test split
 
-###  3️⃣ Handling Class Imbalance
+### Handling Class Imbalance
 
 The dataset is imbalanced.
 
@@ -79,7 +79,7 @@ RFC without SMOTE
 
 RFC with SMOTE
 
-###  4️⃣ Model Optimization
+### Model Optimization
 
 Hyperparameter tuning performed using:
 
@@ -99,7 +99,7 @@ class_weight
 
 bootstrap
 
-###  5️⃣ Model Evaluation
+### Model Evaluation
 
 Evaluation metrics include:
 
@@ -121,13 +121,13 @@ RFC + SMOTE
 
 Tuned RFC + SMOTE
 
-### 6️⃣ Feature Importance
+### Feature Importance
 
 The final model produces a feature importance visualization, identifying key drivers of customer churn.
 
 This helps improve interpretability and supports business decision-making.
 
-###  7️⃣ Customer Risk Segmentation
+### Customer Risk Segmentation
 
 Based on predicted churn probabilities, customers are categorized into:
 
@@ -139,7 +139,7 @@ Based on predicted churn probabilities, customers are categorized into:
 
 This segmentation enables targeted retention strategies.
 
-## 📈 Key Insights
+## Key Insights
 
 Class imbalance significantly affects recall for churn prediction.
 
