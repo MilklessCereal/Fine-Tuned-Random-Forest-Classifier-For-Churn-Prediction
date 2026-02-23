@@ -59,7 +59,7 @@ Target distribution analysis (churn imbalance)
 
 Handling missing values
 
-Encoding categorical variables
+Encoding categorical variables using Target Encoder
 
 Feature scaling 
 
