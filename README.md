@@ -26,7 +26,7 @@ Link: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 The dataset contains customer demographic, account, and service usage information, with a binary churn target variable.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 Python 3
 
