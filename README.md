@@ -101,7 +101,7 @@ bootstrap
 
 ### Model Evaluation
 
-Evaluation metrics include:
+# Evaluation metrics include:
 
 Accuracy
 
@@ -113,7 +113,7 @@ F1-score
 
 Confusion Matrix
 
-Performance comparison between:
+# Performance comparison between:
 
 Baseline RFC
 
