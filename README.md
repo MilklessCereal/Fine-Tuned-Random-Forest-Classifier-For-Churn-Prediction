@@ -141,7 +141,7 @@ This segmentation enables targeted retention strategies.
 
 ## Key Insights
 
-The SHAP summary plot shows that Contract type, InternetService, tenure, and security/support-related services are the most influential features in predicting churn. Higher churn risk is associated with shorter tenure, higher charges, and the absence of services such as OnlineSecurity or TechSupport, while longer tenure and bundled services reduce churn likelihood.
+The SHAP summary plot shows that Contract type, InternetService, tenure, and security/support-related services are the most significant features for churn prediction. Higher churn risk is associated with shorter tenure, higher charges, and the absence of services such as OnlineSecurity or TechSupport, while longer tenure and bundled services reduce churn likelihood.
 
 Class imbalance significantly affects recall for churn prediction.
 
