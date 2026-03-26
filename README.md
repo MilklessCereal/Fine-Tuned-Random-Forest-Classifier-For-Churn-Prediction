@@ -121,7 +121,7 @@ This project was developed on Google Colab. No local setup is required.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-username/your-repo-name/blob/main/telco_churn_prediction.ipynb)
 
-> **Note:** All required libraries (`scikit-learn`, `imbalanced-learn`, etc.) are pre-installed in the Colab runtime and do not require manual installation.
+> **Note:** Any libraries that require installation can be installed using `!pip install {library}`. If needed, refer to their API documentation for instructions.
 
 ---
 
