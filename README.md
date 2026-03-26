@@ -1,150 +1,130 @@
-## Telco Customer Churn Prediction – Random Forest with SMOTE & RandomizedSearchCV
+# Telco Customer Churn Prediction
+### Random Forest Classifier with SMOTE & RandomizedSearchCV
 
-This project investigates customer churn prediction using a Random Forest Classifier (RFC) on the Telco Customer Churn dataset from Kaggle.
+A complete end-to-end machine learning pipeline for predicting customer churn, featuring class imbalance handling, hyperparameter optimization, and customer risk segmentation.
 
-The primary objective is to:
+---
 
-- Compare Random Forest performance with and without SMOTE
+## Overview
 
-- Optimize hyperparameters using RandomizedSearchCV
+This project builds a churn prediction system on the [Telco Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) (Kaggle). It explores how class imbalance handling and hyperparameter tuning affect model performance, and translates model outputs into actionable customer risk tiers.
 
-- Evaluate model performance improvements
+**Core objectives:**
+- Benchmark Random Forest performance with and without SMOTE
+- Optimize hyperparameters via RandomizedSearchCV (F1-score)
+- Evaluate end-to-end model improvement across three configurations
+- Identify key churn drivers through feature importance analysis
+- Segment customers into risk tiers for targeted retention strategies
 
-- Analyze feature importance
-
-- Segment customers into High / Medium / Low churn risk
-
-This project demonstrates an end-to-end machine learning workflow including data preprocessing, exploratory data analysis (EDA), model training, evaluation, and interpretation.
+---
 
 ## Dataset
 
-Source: Kaggle
+| Property | Detail |
+|----------|--------|
+| **Source** | Kaggle |
+| **Dataset** | [Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) |
+| **Target Variable** | `Churn` (binary) |
+| **Features** | Customer demographics, account info, and service usage |
 
-Dataset: Telco Customer Churn
+---
 
-Link: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+## Tech Stack
 
-The dataset contains customer demographic, account, and service usage information, with a binary churn target variable.
+| Category | Libraries |
+|----------|-----------|
+| Data manipulation | `pandas`, `numpy` |
+| Visualisation | `matplotlib`, `seaborn` |
+| Modelling | `scikit-learn` |
+| Imbalance handling | `imbalanced-learn` (SMOTE) |
+| Language | Python 3 |
 
-## Technologies Used
-
-Python 3
-
-Pandas
-
-NumPy
-
-Matplotlib / Seaborn
-
-Scikit-learn
-
-imbalanced-learn (SMOTE)
+---
 
 ## Project Workflow
-### Exploratory Data Analysis (EDA)
 
-Basic EDA steps include:
+### 1. Exploratory Data Analysis (EDA)
+- Null value detection and data type inspection
+- Statistical summaries (`describe()`, `info()`)
+- Correlation matrix visualisation
+- Target distribution analysis to surface class imbalance
 
-Null value checking
+### 2. Data Preprocessing
+- Missing value imputation
+- Categorical encoding via **Target Encoder**
+- Feature scaling
+- Stratified train-test split
 
-Data type inspection (info())
+### 3. Handling Class Imbalance
+The churn class is underrepresented in the dataset. To address this, **SMOTE** (Synthetic Minority Over-sampling Technique) was applied to the training set.
 
-Statistical summaries (describe())
+Models compared:
+- Baseline RFC (no resampling)
+- RFC + SMOTE
 
-Correlation matrix visualization
+### 4. Hyperparameter Tuning
+`RandomizedSearchCV` with 5-fold cross-validation and F1-score as the scoring metric was used to search the following parameter space:
 
-Target distribution analysis (churn imbalance)
+| Parameter | Description |
+|-----------|-------------|
+| `n_estimators` | Number of trees in the forest |
+| `max_depth` | Maximum tree depth |
+| `min_samples_split` | Minimum samples required to split a node |
+| `min_samples_leaf` | Minimum samples required at a leaf node |
+| `class_weight` | Class weighting strategy |
+| `bootstrap` | Whether to use bootstrap samples |
 
-### Data Preprocessing
+### 5. Model Evaluation
+Three configurations are benchmarked:
 
-Handling missing values
+| Model | Description |
+|-------|-------------|
+| **Baseline RFC** | Default Random Forest, no resampling |
+| **RFC + SMOTE** | Random Forest trained on SMOTE-resampled data |
+| **Tuned RFC + SMOTE** | SMOTE + RandomizedSearchCV-optimized hyperparameters |
 
-Encoding categorical variables using Target Encoder
+Metrics reported: Accuracy, Precision, Recall, F1-Score, and Confusion Matrix.
 
-Feature scaling 
+### 6. Feature Importance
+The final model produces a feature importance plot identifying the top drivers of churn. Key findings from the SHAP summary:
 
-Train-test split
+> `Contract type`, `InternetService`, `tenure`, `OnlineSecurity`, and `TechSupport` are the most influential features. Short tenure, higher monthly charges, and the absence of bundled services are associated with elevated churn risk.
 
-### Handling Class Imbalance
+### 7. Customer Risk Segmentation
+Predicted churn probabilities are used to categorise customers into three retention tiers:
 
-The dataset is imbalanced.
+| Risk Level | Action |
+|------------|--------|
+| High Risk | Immediate outreach, priority retention offers |
+| Medium Risk | Proactive engagement, service upsell |
+| Low Risk | Standard communication, loyalty rewards |
 
-To address this:
-
-Applied SMOTE (Synthetic Minority Over-sampling Technique)
-
-Compared model performance:
-
-RFC without SMOTE
-
-RFC with SMOTE
-
-### Model Optimization
-
-Hyperparameter tuning performed using:
-
-RandomizedSearchCV with F1-score scoring and cross validation
-
-Optimized parameters for:
-
-n_estimators
-
-max_depth
-
-min_samples_split
-
-min_samples_leaf
-
-class_weight
-
-bootstrap
-
-### Model Evaluation
-
-#### Evaluation metrics include:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-Confusion Matrix
-
-#### Performance comparison between:
-
-Baseline RFC
-
-RFC + SMOTE
-
-Tuned RFC + SMOTE
-
-### Feature Importance
-
-The final model produces a feature importance visualization, identifying key drivers of customer churn.
-
-This helps improve interpretability and supports business decision-making.
-
-### Customer Risk Segmentation
-
-Based on predicted churn probabilities, customers are categorized into:
-
-🔴 High Risk
-
-🟠 Medium Risk
-
-🟢 Low Risk
-
-This segmentation enables targeted retention strategies.
+---
 
 ## Key Insights
 
-The SHAP summary plot shows that Contract type, InternetService, tenure, and security/support-related services are the most significant features for churn prediction. Higher churn risk is associated with shorter tenure, higher charges, and the absence of services such as OnlineSecurity or TechSupport, while longer tenure and bundled services reduce churn likelihood.
+- **Class imbalance** materially reduces recall for the churn class when left unaddressed — the model under-detects churners.
+- **SMOTE** improves minority class detection at the cost of a slight precision trade-off.
+- **Hyperparameter tuning** on top of SMOTE yields the best overall F1-score across both classes.
+- Customers with **month-to-month contracts**, **no tech support**, and **short tenure** represent the highest churn risk profile.
 
-Class imbalance significantly affects recall for churn prediction.
+---
 
-SMOTE improves detection of minority (churn) class.
+## Getting Started
 
-Hyperparameter tuning further enhances model performance.
+This project was developed on Google Colab. No local setup is required.
+
+1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) and upload it to your Google Drive or Colab session storage.
+2. Open the notebook in Google Colab using the button below (or upload it manually via *File → Upload notebook*).
+3. Update the dataset file path in the notebook to match your own Drive/storage location.
+4. Run all cells in order.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-username/your-repo-name/blob/main/telco_churn_prediction.ipynb)
+
+> **Note:** All required libraries (`scikit-learn`, `imbalanced-learn`, etc.) are pre-installed in the Colab runtime and do not require manual installation.
+
+---
+
+## Acknowledgements
+
+Dataset provided by [IBM via Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn).
